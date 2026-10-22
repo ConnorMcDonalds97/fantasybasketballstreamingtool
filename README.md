@@ -27,7 +27,10 @@ export ESPN_SWID='{...}'       # private leagues only: browser cookie SWID
 ```
 Options: `--until 2026-11-01` (matchup end if not Sunday), `--slots 10`, `--droppable 3`, `--min-gain 5`.
 
-Output is either `HOLD` or a ranked list of `GAIN  DROP  ADD`. Make the move after your dropped
-player's game today, so you keep those points.
+Output is either `HOLD` or a ranked list of `GAIN  MOVE ON  DROP  ADD`. `MOVE ON` is the best day to
+make the move: if the pickup doesn't play for a few days, waiting keeps your dropped player's games
+until then. Times are your local time: "after 8:30 PM" = once your dropped player's game is over
+(tip-off + 2.5h, `GAME_LENGTH` in stream.py), "anytime" = he doesn't play that day,
+"claim before ..." = the pickup is on waivers; your drop happens when the claim clears.
 
 Self-check: `.venv/bin/python test_stream.py`
